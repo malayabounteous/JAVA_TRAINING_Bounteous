@@ -135,6 +135,26 @@ public class Main {
 
      //qn 10-
 
+     List<Integer>numlist=new ArrayList<>();
+     numlist.add(10);
+     numlist.add(20);
+     numlist.add(10);
+     numlist.add(12);
+     numlist.add(12);
+
+     int n=numlist.size();
+     for(int i=0;i<n;++i)
+     {
+      int x=numlist.get(i);
+       for(int j=i+1;j<n;++j)
+       {
+          if(x==numlist.get(j))
+          {
+            System.out.println(x);
+          }
+       }
+     }
+
 
     }
 }

@@ -16,7 +16,7 @@ public class Main {
         {
             System.out.println("id="+s.id+" name="+s.name);
         }
-        Collections.sort(list);
+        Collections.sort(list,(a,b)->b.id-a.id);
         System.out.println("AFTER SORTING");
         for(Student s:list)
         {
