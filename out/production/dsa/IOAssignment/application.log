@@ -1,0 +1,8 @@
+INFO Application started
+INFO User logged in
+WARN Disk space low
+ERROR Database connection failed
+INFO Processing request
+ERROR Null pointer exception
+WARN Memory usage high
+INFO Application stopped

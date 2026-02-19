@@ -1,0 +1,10 @@
+Total Files = 136
+Total Directories = 88
+Total Size (bytes) = 82286
+
+Top 5 Largest Files:
+1. C:\Users\MalayaSahu\Documents\dsa\.git\hooks\pre-rebase.sample -> 4898 bytes
+2. C:\Users\MalayaSahu\Documents\dsa\.git\hooks\fsmonitor-watchman.sample -> 4726 bytes
+3. C:\Users\MalayaSahu\Documents\dsa\.git\index -> 4002 bytes
+4. C:\Users\MalayaSahu\Documents\dsa\CollectionFramework\Main.java -> 3769 bytes
+5. C:\Users\MalayaSahu\Documents\dsa\.git\hooks\update.sample -> 3650 bytes

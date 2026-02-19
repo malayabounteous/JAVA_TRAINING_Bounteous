@@ -1,0 +1,10 @@
+
+SOLID
+S->Single responcibility Principle
+   one class has one  purpose only .
+O->Open close principle 
+   a class is open for extend and closed for modification .
+L->Liskov Substitution principle
+   
+   
+  

@@ -2,11 +2,11 @@ package HashSet;
 
 public class MyHashSet<E> {
     private int capacity=10;
-    private Node<E>[]buckets;
+    private Node<E>[]list;
 
     public MyHashSet()
     {
-        buckets=new Node[capacity];
+        list=new Node[capacity];
     }
     private int getindex(E key)
     {
@@ -18,8 +18,8 @@ public class MyHashSet<E> {
     {
         int index=getindex(key );
 
-        Node<E>head=buckets[index];
-
+        Node<E>head=list[index];
+    
         Node<E>cur=head;
 
         while(cur!=null)
@@ -31,12 +31,12 @@ public class MyHashSet<E> {
 
         Node<E>newhead=new Node<>(key);
         newhead.next=head;
-        buckets[index]=newhead;
+        list[index]=newhead;
     }
     public boolean contains(E key)
     {
         int index=getindex(key);
-        Node<E>cur=buckets[index];
+        Node<E>cur=list[index];
 
         while(cur!=null)
         {
@@ -49,7 +49,7 @@ public class MyHashSet<E> {
     public void remove(E key)
     {
         int index=getindex(key);
-        Node<E>cur=buckets[index];
+        Node<E>cur=list[index];
 
         Node<E>prev=null;
         while(cur!=null)
@@ -58,7 +58,7 @@ public class MyHashSet<E> {
             {
                 if(prev==null)
                 {
-                    buckets[index]=cur;
+                    list[index]=cur;
                 }
                 else{
                     prev.next=cur.next;
@@ -71,6 +71,7 @@ public class MyHashSet<E> {
             cur=cur.next;
         }
     }
+   
     @Override
 public String toString() {
 
@@ -78,7 +79,7 @@ public String toString() {
     sb.append("[ ");
 
     for(int i=0;i<capacity;i++){
-        Node<E> curr = buckets[i];
+        Node<E> curr = list[i];
 
         while(curr != null){
             sb.append(curr.key).append(",");
