@@ -5,11 +5,11 @@ import java.nio.file.*;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.List;
+import java.nio.file.Path;
 
-public class DuplicateFile throws IOException {
+public class DuplicateFile  {
     
-    public static void main(String[] args) {
+    public static void main(String[] args)throws IOException {
         
         Path dir=Path.of("C:\\Users\\MalayaSahu\\Documents\\dsa");
         

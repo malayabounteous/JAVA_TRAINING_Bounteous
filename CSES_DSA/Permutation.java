@@ -1,4 +1,4 @@
-// package CSESDSA;
+ package CSES_DSA;
 
 import java.util.Scanner;
 
