@@ -1,0 +1,47 @@
+
+CREATE TABLE accounts (
+    accountId   integer  PRIMARY KEY,
+    accountName VARCHAR(100) NOT NULL,
+    cashBalance NUMERIC(18,4) NOT NULL DEFAULT 0
+);
+
+CREATE TABLE trades (
+    tradeId      integer   PRIMARY KEY,
+    accountId    integer   NOT NULL REFERENCES accounts(accountId),
+    symbol        VARCHAR(10)   NOT NULL,
+    quantity      INT           NOT NULL CHECK (quantity > 0),    -- NEGATIVE QTY NOT ALLOWED
+    price         NUMERIC(18,4) NOT NULL,
+	side          VARCHAR(4)    NOT NULL CHECK (side IN ('BUY','SELL')),
+    timestamp    TIMESTAMP     NOT NULL DEFAULT NOW()
+);
+CREATE TABLE positions (
+    accountId    integer   NOT NULL REFERENCES accounts(accountId),
+    symbol        VARCHAR(10)   NOT NULL,
+    netQuantity  INT           NOT NULL DEFAULT 0 CHECK (netQuantity >= 0),  -- NO SHORT SELLING BY DEFAULT
+    averageCost  NUMERIC(18,6) NOT NULL DEFAULT 0,
+    totalCost    NUMERIC(18,4) NOT NULL DEFAULT 0,
+    lastUpdated  TIMESTAMP     NOT NULL DEFAULT NOW(),
+    PRIMARY KEY (accountId, symbol)
+);
+
+
+
+INSERT INTO accounts  VALUES
+    (1, 'Alpha Fund',    1000000.00),
+    (2, 'Beta Portfolio',  500000.00),
+    (3, 'Gamma Desk',      750000.00);
+
+select * from accounts;
+select * from trades;
+INSERT INTO accounts  VALUES
+(1011, 'csahu Sahu', 50000.00),
+(1012, 'Miti Sharma', 75000.00),
+(1013, 'Chumki Verma', 62000.00),
+(1014, 'Nishant Patel', 88000.00),
+(1015, 'Pooja Reddy', 54000.00),
+(1016, 'Dibya Mehta', 91000.00),
+(1017, 'Sweata Singh', 47000.00),
+(1018, 'Chanchal Rao', 83000.00),
+(1019, 'Kumari Das', 66000.00),
+(1020, 'Silu Kumar', 72000.00);
+
