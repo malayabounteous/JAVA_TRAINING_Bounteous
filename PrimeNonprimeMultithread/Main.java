@@ -6,7 +6,7 @@ public class Main {
         Prime p=new Prime();
         NonPrime n=new NonPrime();
          boolean lock=true;
-        
+
 
 
          Thread t1=new Thread(p);
