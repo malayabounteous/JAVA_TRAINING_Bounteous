@@ -1,5 +1,8 @@
 package TransactionProcess;
 import java.util.*;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
+
 public class ReportGenerator {
 
     private List<Trade> trades;
@@ -23,5 +26,26 @@ public class ReportGenerator {
         System.out.println("Total Requests="+total);
         System.out.println("Total executed="+executed);
         System.out.println("Total rejected="+rejected);
+
+        Map<Boolean,List<Trade>>mpp=trades.stream().collect(Collectors.groupingBy(t->t.getSide().equals("BUY")));
+
+        System.out.println("Trades Buying are a s follows");
+        System.out.println(mpp.get(true));
+
+        System.out.println("Trades Selling are as follows");
+        System.out.println(mpp.get(false));
+
+        Map<String,List<Trade>>groupBysymbol=trades.stream().collect(Collectors.groupingBy(t->t.getSymbol()));
+
+        //System.out.println(groupBysymbol);
+        for(Map.Entry<String,List<Trade>> t:groupBysymbol.entrySet())
+        {
+            List<Integer>ids=t.getValue().stream().map(Trade::getTradeId).toList();
+            System.out.println("Symbol "+t.getKey()+" has trades ->"+ids);
+        }
+
+
+
+
     }
 }

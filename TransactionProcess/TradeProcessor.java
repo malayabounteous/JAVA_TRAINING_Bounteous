@@ -74,15 +74,14 @@ public class TradeProcessor {
             System.out.println("Executed count="+executedCount.get());
             System.out.println("Executed "+threadname+" ,"+req.getTradeId());
         }
-        System.out.println("inside processOne");
+       // System.out.println("inside processOne");
         return trade;
 
     }
 
-    private void saveTrade(){
+    public void saveTrade(){
         try{
             tradeDAO.insertBatch(new ArrayList<>(processedTrade));
-
         }
         catch (Exception e)
         {
@@ -90,7 +89,7 @@ public class TradeProcessor {
         }
     }
 
-    private void savePosition()
+    public void savePosition()
     {
         try{
             positionDAO.insertAll(portfolio.getAllPosition());

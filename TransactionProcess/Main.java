@@ -23,6 +23,10 @@ public class Main {
           System.out.println("Trade processing");
           TradeProcessor processor=new TradeProcessor(portfolio);
           List<Trade> allTrades=processor.processAll(requests);
+          //SAVE IN DB
+
+          processor.saveTrade();
+          processor.savePosition();
 
           System.out.println("Generate Report");
           ReportGenerator report=new ReportGenerator(allTrades,portfolio.getAllPosition(),portfolio.getAllAccounts(),processor);

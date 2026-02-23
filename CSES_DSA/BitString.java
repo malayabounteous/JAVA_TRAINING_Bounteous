@@ -7,18 +7,16 @@ public class BitString {
     {
 
         Scanner sc=new Scanner(System.in);
-        long mod=1000000007;
+        long mod=((long)Math.pow(10,9))+7;
         long n= sc.nextLong();
-
-        if(n>32)
+         long mul=1;
+        for(int i=1;i<=n;++i)
         {
-            long ll=1<<62;
-            System.out.println(ll%mod);
+            mul*=(long)2;
+            mul%=mod;
         }
-        else {
-            long ll=1<<n;
-            System.out.println(ll%mod);
-        }
+        System.out.println(mul);
+
 
     }
 }

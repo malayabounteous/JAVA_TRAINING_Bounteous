@@ -1,5 +1,7 @@
-package CSES_DSA;
+//package CSES_DSA;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class CoinPiles {
@@ -9,26 +11,20 @@ public class CoinPiles {
         Scanner sc=new Scanner(System.in);
 
         int n=sc.nextInt();
+        //List<String> ans=new ArrayList<>();
+        StringBuffer ans=new StringBuffer();
         while(n>0)
         {
-            int x=sc.nextInt();
-            int y=sc.nextInt();
-            
-            if(x==y && x%3==0)
-            {
-                System.out.println("YES");
-                n--;
-                continue;
-            }
-            else if(x*2==y || x==2*y)
-            {
-                System.out.println("YES");
-                n--;
-                continue;
-            }
+            long x=sc.nextLong();
+            long y=sc.nextLong();
 
-
+            if((x+y)%3==0 && Math.max(x,y)<=2*Math.min(x,y))
+                ans.append("YES\n");
+            else
+                ans.append("NO\n");
+            n--;
 
         }
+        System.out.println(ans);
     }
 }      
